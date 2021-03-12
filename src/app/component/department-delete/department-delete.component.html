@@ -1,0 +1,52 @@
+<div class="container">
+    <br />
+    <nav aria-label="breadcrumb">
+
+    </nav>
+    <h2>Delete Department</h2>
+    <hr>
+
+    <div class="form-row" *ngIf="showMsg">
+        <div class="alert alert-{{type}} col-md-12" role="alert">
+            {{msg}}
+        </div>
+    </div>
+
+    <form #departmentForm="ngForm">
+        <div class="form-row">
+            <div class="col-md-4 form-floating">
+                <input type="text" id="Name" name="Name" placeholder="Enter the Name" class="form-control" #Name
+                    [(ngModel)]="department.Name" autocomplete="off" />
+                <label for="Name">Name</label>
+            </div>
+            <br>
+            <div class="col-md-4 form-floating">
+                <input type="text" id="Budget" name="Budget" placeholder="Enter the Budget" class="form-control" #Budget
+                    [(ngModel)]="department.Budget" autocomplete="off" />
+                <label for="Budget">Budget</label>
+            </div>
+            <br>
+            <div class="col-md-4 form-floating">
+                <input type="date" id="StartDate" name="StartDate" placeholder="Enter the StartDate"
+                    class="form-control" #StartDate [(ngModel)]="department.StartDate" autocomplete="off" />
+                <label for="StartDate">StartDate</label>
+            </div>
+            <br>
+            <div class="col-md-4 form-floating">
+                <input type="text" id="InstructorID" name="InstructorID" placeholder="Enter the InstructorID"
+                    class="form-control" #InstructorID [(ngModel)]="department.InstructorID" autocomplete="off" />
+                <label for="InstructorID">InstructorID</label>
+            </div>
+        </div>
+        <br>
+
+        <div class="alert alert-danger col-md-12" role="alert">
+            Are you sure?
+            <br>
+            <div class="btn-group" role="group">
+                <button class="btn btn-outline-primary" (click)="delete()">Delete</button>
+                <a class="btn btn-outline-primary" [routerLink]="[ '/department-list' ]">Back</a>
+            </div>
+        </div>
+    </form>
+</div>

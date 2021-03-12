@@ -1,0 +1,41 @@
+<div class="container">
+    <br />
+    <nav aria-label="breadcrumb">
+    </nav>
+
+    <h2>Edit Student</h2>
+    <hr>
+
+    <div class="form-row" *ngIf="showMsg">
+        <div class="alert alert-{{type}} col-md-12" role="alert">
+            {{msg}}
+        </div>
+    </div>
+
+    <form #studentForm="ngForm" *ngIf="student">
+        <div class="form-row">
+            <div class="col-md-4 form-floating">
+                <input type="text" id="LastName" name="LastName" placeholder="Enter the LastName" class="form-control"
+                    #LastName [(ngModel)]="student.LastName" autocomplete="off" />
+                <label for="LastName">LastName</label>
+            </div>
+            <br>
+            <div class="col-md-4 form-floating">
+                <input type="text" id="FirstMidName" name="FirstMidName" placeholder="Enter the FirstMidName"
+                    class="form-control" #FirstMidName [(ngModel)]="student.FirstMidName" autocomplete="off" />
+                <label for="FirstMidName">FirstMidName</label>
+            </div>
+            <br>
+            <div class="col-md-4 form-floating">
+                <input type="date" id="EnrollmentDate" name="EnrollmentDate" placeholder="Enter the EnrollmentDate"
+                    class="form-control" #EnrollmentDate [(ngModel)]="student.EnrollmentDate" autocomplete="off" />
+                <label for="EnrollmentDate">EnrollmentDate</label>
+            </div>
+        </div>
+        <br>
+        <div class="btn-group" role="group">
+            <button class="btn btn-outline-primary" (click)="edit()">Edit</button>
+            <a class="btn btn-outline-primary" [routerLink]="[ '/student-list' ]">Back</a>
+        </div>
+    </form>
+</div>

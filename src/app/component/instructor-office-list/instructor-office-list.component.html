@@ -1,0 +1,28 @@
+<div class="container">
+    <br />
+    <h1>Instructors Offices</h1>
+    <div class="form-row" *ngIf="showMsg">
+        <div class="alert alert-{{type}} col-md-12" role="alert">
+            {{msg}}
+        </div>
+    </div>
+    <label>FullName: {{instructor.FullName}}</label>
+    <br>
+    <label>HireDate: {{instructor.HireDate}}</label>
+
+    <div class="form-row">
+        <div class="col-md-12">
+            <label>Location:</label>
+            <label *ngIf="ifofficesExist">{{office.Location}}</label>
+            <div *ngIf="!ifofficesExist">
+                <input type="text" [(ngModel)]="office.Location" id="Location" Name="Location" class='form-control' />
+                <br>
+                <div class="btn-group" role="group">
+                    <button class="btn btn-smg btn-outline-primary" (click)="saveOffice">Save</button>
+                </div>
+                <a class="btn btn-smg btn-outline-primary" [routerLink]="[ '/instructor-list']">Back</a>
+            </div>
+        </div>
+        <br />
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+    <br />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <h1>Department Detail</h1>
+        </ol>
+    </nav>
+
+    <label>Name: {{ department.Name }}</label><br />    
+    <label>Budget: {{ department.Budget }}</label><br />
+    <label>StartDate: {{ department.StartDate }}</label><br />
+    <label>InstructorID: {{ department.InstructorID }}</label><br />        
+    <br>
+    <a class="btn btn-outline-primary" [routerLink]="[ '/department-list' ]">Back</a> 
+</div>

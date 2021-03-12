@@ -1,0 +1,45 @@
+<div class="container">
+    <br />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/course-list']">Courses</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Create</li>
+        </ol>
+    </nav>
+
+    <h2>Create Course</h2>
+    <hr>
+
+    <div class="form-row" *ngIf="showMsg">
+        <div class="alert alert-{{type}} col-md-12" role="alert">
+            {{msg}}
+        </div>
+    </div>
+
+    <form #courseForm="ngForm">
+        <div class="form-row">
+            <div class="col-md-4 form-floating">
+                <input type="text" id="ID" name="ID" placeholder="Enter the ID" class="form-control" #ID
+                    [(ngModel)]="course.CourseID" autocomplete="off" />
+                <label for="ID">ID</label>
+            </div>
+            <br>
+            <div class="col-md-4 form-floating">
+                <input type="text" id="Title" name="Title" placeholder="Enter the Title" class="form-control" #Title
+                    [(ngModel)]="course.Title" autocomplete="off" />
+                <label for="Title">Title</label>
+            </div>
+            <br>
+            <div class="col-md-4 form-floating">
+                <input type="number" min="1" max="4" id="Credits" name="Credits" placeholder="Enter the Credits" class="form-control"
+                    #Credits [(ngModel)]="course.Credits" autocomplete="off" />
+                <label for="Credits">Credits</label>
+            </div>
+        </div>
+        <br>
+        <div class="btn-group" role="group">
+            <button class="btn btn-outline-primary" (click)="save()">Save</button>
+            <a class="btn btn-outline-primary" [routerLink]="[ '/course-list' ]">Back</a>
+        </div>
+    </form>
+</div>

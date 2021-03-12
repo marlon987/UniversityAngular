@@ -1,0 +1,56 @@
+<div class="container">
+    <br />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <h1>Departments</h1>
+        </ol>
+    </nav>
+
+    <table class="table table-striped table-bordered table-responsive">
+        <thead class="table-dark">
+            <tr>
+                <td>
+                    <h5>DepartmentID</h5>
+                </td>
+                <td>
+                    <h5>Name</h5>
+                </td>
+                <td>
+                    <h5>Budget</h5>
+                </td>
+                <td>
+                    <h5>StartDate</h5>
+                </td>
+                <td>
+                    <h5>InstructorID</h5>
+                </td>
+                <td><a class=" col-md-12 btn btn-sm btn-light" [routerLink]="[ '/department-create']">Add</a></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let department of departments">
+                <td>{{ department.DepartmentID }}</td>
+                <td>{{ department.Name }}</td>
+                <td>{{ department.Budget }}</td>
+                <td>{{ department.StartDate}}</td>
+                <td>{{ department.InstructorID }}</td>
+                <td>
+                    <div class="form-group row">
+                        <div class="col-md-4">
+                            <a class="btn btn-sm btn-success"
+                                [routerLink]="[ '/department-detail', department.DepartmentID ]">Details</a>
+                        </div>
+                        <div class="col-md-4">
+                            <a class="btn btn-sm btn-warning"
+                                [routerLink]="[ '/department-edit', department.DepartmentID ]">Edit</a>
+                        </div>
+                        <div class="col-md-4">
+                            <a class="btn btn-sm btn-danger"
+                                [routerLink]="[ '/department-delete', department.DepartmentID]">Delete</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

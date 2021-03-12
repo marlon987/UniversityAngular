@@ -1,0 +1,13 @@
+<div class="container">
+    <br />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <h1>Courses Detail</h1>
+        </ol>
+    </nav>
+
+    <label>Title: {{ course.Title }}</label><br />    
+    <label>Credits: {{ course.Credits }}</label><br />      
+    <br>
+    <a class="btn btn-outline-primary" [routerLink]="[ '/course-list' ]">Back</a>   
+</div>

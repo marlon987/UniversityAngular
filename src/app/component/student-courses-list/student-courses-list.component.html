@@ -1,0 +1,53 @@
+<div class="container">
+    <br />
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <h1>Students</h1>
+        </ol>
+    </nav>
+
+    <div class="form-row" *ngIf="showMsg">
+        <div class="alert alert-{{type}} col-md-12" role="alert">
+            {{msg}}
+        </div>
+    </div>
+
+    <label>Full Name: {{ student.FullName }}</label><br />
+    <label>Enrollment: {{ student.EnrollmentDate }}</label><br />
+    <br>
+    <div>
+        <table class="table table-striped table-bordered table-responsive">
+            <thead class="table-dark">
+                <tr>
+                    <td>
+                        <h5>Title</h5>
+                    </td>
+                    <td>
+                        <h5>Credits</h5>
+                    </td>
+                    <td></td>
+                    <td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let enrollment of enrollments">
+                    <td>{{ enrollment.Course.Title }}</td>
+                    <td>{{ enrollment.Course.Credits }}</td>
+                    <td>
+                        <button class="btn btn-sm btn-outline-danger"
+                            (click)="deleteEnrollment(enrollment.EnrollmentID)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <h3>Add Courses</h3>
+    <select class="form-control" id="CourseID" name="CourseID" 
+    [(ngModel)]="enrollment.CourseID" #CourseID>
+        <option *ngFor="let course of courses" [value]="course.CourseID">{{course.Title}}</option>
+    </select>
+    <br>
+    <button class="btn btn-sm btn-outline-primary"
+    (click)="saveEnrollment()">Add</button>
+</div>
